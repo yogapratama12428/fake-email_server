@@ -9,22 +9,13 @@ const prisma = new PrismaClient();
 app.use(express.json());
 app.use(cors());
 
-// const users = [
-//   { email: "yoga.pratama.pangestu@gmail.com" },
-//   {
-//     email: "yoga.pratama@gmail.com",
-//   },
-// ];
-
-// async..await is not allowed in global scope, must use a wrapper
-// send mail with defined transport object
 const kirim_email = async () => {
   const info = await transporter.sendMail({
     from: "yoga.pratama.pangestu@gmail.com", // sender address
     to: "yoga.pratama.pangestu@gmail.com", // list of receivers
-    subject: "Hello ✔", // Subject line
+    subject: "ALARM KEBOCORAN GAS", // Subject line
     text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
+    html: "<b>Awas Bahaya</b>", // html body
   });
 
   console.log("Message sent: %s", info.messageId);
@@ -35,8 +26,8 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   //   secure: false, // Use `true` for port 465, `false` for all other ports
   auth: {
-    user: "yoga.pratama.pangestu@gmail.com",
-    pass: "rsjzjyqxvkhiofwk",
+    user: "alfandiahmad11@gmail.com",
+    pass: "bebencukcrhuciut",
   },
 });
 
@@ -44,7 +35,7 @@ app.get("/api/hello", async (req, res) => {
   res.status(200).json({ msg: "hello" });
 });
 
-app.get("/api/user/", async (req, res) => {
+app.get("/api/user", async (req, res) => {
   try {
     const user = await prisma.user.findMany({});
     res.status(200).json(user);
