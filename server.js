@@ -98,7 +98,9 @@ app.delete("/api/user/:id", async (req, res) => {
   }
 });
 
-app.get("/api/alarm", async (req, res) => {
+app.post("/api/alarm", async (req, res) => {
+  const { pesan } = req.body;
+
   const data = [];
   try {
     const users = await prisma.user.findMany({});
@@ -109,7 +111,7 @@ app.get("/api/alarm", async (req, res) => {
       to: [data], // list of receivers
       subject: "ini Alarm ✔", // Subject line
       text: "", // plain text body
-      html: "<b>AWAS BAHAYA ADA KEBOCORAN GAS </b>", // html body
+      html: `<b> ${data} </b>`, // html body
     });
 
     console.log(data);

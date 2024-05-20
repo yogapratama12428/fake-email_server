@@ -23,7 +23,12 @@ Content-Type: application/json
 GET http://localhost:3000/api/user
 
 ### POST ALARM 
-GET http://localhost:3000/api/alarm
+POST http://localhost:3000/api/alarm
+Content-Type: application/json 
+
+{
+    "pesan" : "Berhati hati ada kebocoran gas"
+}
 
 ###
 
