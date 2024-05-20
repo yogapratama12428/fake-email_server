@@ -13,9 +13,9 @@ const kirim_email = async () => {
   const info = await transporter.sendMail({
     from: "yoga.pratama.pangestu@gmail.com", // sender address
     to: "yoga.pratama.pangestu@gmail.com", // list of receivers
-    subject: "ALARM KEBOCORAN GAS", // Subject line
+    subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
-    html: "<b>Awas Bahaya</b>", // html body
+    html: "<b>Hello world?</b>", // html body
   });
 
   console.log("Message sent: %s", info.messageId);
@@ -26,8 +26,8 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   //   secure: false, // Use `true` for port 465, `false` for all other ports
   auth: {
-    user: "alfandiahmad11@gmail.com",
-    pass: "bebencukcrhuciut",
+    user: "ahmadalfandi0201@gmail.com",
+    pass: "bqrcbihdjmikpncr",
   },
 });
 
@@ -105,11 +105,11 @@ app.get("/api/alarm", async (req, res) => {
     users.map((user) => data.push(user.email));
 
     const info = await transporter.sendMail({
-      from: "yoga.pratama.pangestu@gmail.com", // sender address
+      from: "ahmadalfandi0201@gmail.com", // sender address
       to: [data], // list of receivers
       subject: "ini Alarm ✔", // Subject line
-      text: "aku cinta padamu dhea noviza sayanggku tipang tipang palang palang", // plain text body
-      html: "<b>Hello world?</b>", // html body
+      text: "", // plain text body
+      html: "<b>AWAS BAHAYA ADA KEBOCORAN GAS </b>", // html body
     });
 
     console.log(data);
@@ -118,7 +118,7 @@ app.get("/api/alarm", async (req, res) => {
 
     res.status(200).json({ msg: "pesan terkirim" });
   } catch (error) {
-    res.status(404).json({ msg: "pesan tidak terkirim" });
+    res.status(404).json({ msg: error });
   }
 });
 
