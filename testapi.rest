@@ -1,0 +1,25 @@
+GET http://localhost:3000/api/hello
+
+### ADD USER 
+POST http://localhost:3000/api/user
+Content-Type: application/json
+
+{
+    "email": "dheabusyra30@gmail.com",
+    "nama": "dhea"
+}
+
+### ADD USER 
+PUT http://localhost:3000/api/user/6648a1088ba173cede430239
+Content-Type: application/json
+
+{
+    "email": "dheabusyra30@gmail.com",
+    "nama": "dhea"
+}
+
+### GET ALL USER 
+GET http://localhost:3000/api/user
+
+### POST ALARM 
+POST http://localhost:3000/api/alarm
