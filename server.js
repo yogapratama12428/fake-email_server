@@ -107,7 +107,7 @@ app.delete("/api/user/:id", async (req, res) => {
   }
 });
 
-app.post("/api/alarm", async (req, res) => {
+app.get("/api/alarm", async (req, res) => {
   const data = [];
   try {
     const users = await prisma.user.findMany({});
