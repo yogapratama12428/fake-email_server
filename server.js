@@ -124,7 +124,11 @@ app.get("/api/alarm", async (req, res) => {
     console.log(data);
     console.log("Message sent: %s", info.messageId);
     // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
-  } catch (error) {}
+
+    res.status(200).json({ msg: "pesan terkirim" });
+  } catch (error) {
+    res.status(404).json({ msg: "pesan tidak terkirim" });
+  }
 });
 
 app.listen(3000, () => {
